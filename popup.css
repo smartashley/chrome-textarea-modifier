@@ -33,6 +33,7 @@ p {
 .buttons {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .buttons button {
@@ -42,7 +43,7 @@ p {
   outline: none;
   border: none;
   border-radius: 5px;
-  padding: 10px;
+  padding: 8px 4px;
   background-color: #008c8c;
   color: white;
 }

@@ -93,6 +93,15 @@ changeButton.addEventListener("click", () => {
 });
 
 publishButton.addEventListener("click", () => {
-  document.querySelector(".entity-moderation-form select").value = "published";
-  document.querySelector("#edit-submit").click();
+  chrome.tabs.query({ url: [siteUrl.value] }, (tabs) => {
+    tabs.forEach((tab) => {
+      chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        func: () => {
+          document.querySelector(".entity-moderation-form select").value = "published";
+          document.querySelector("#edit-submit").click();
+        },
+      });
+    });
+  });
 });
